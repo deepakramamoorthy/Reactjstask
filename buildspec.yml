@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo login into docker
+      - docker login -u deepakramamoorthy -p Dee9578461426@@@ 
+  build:
+    commands:
+      - echo Building React application...
+      - docker build -t newimage .
+      - docker tag newimage:latest deepakramamoorthy/reactapplicationdev:4.0
+      - docker push deepakramamoorthy/reactapplicationdev:4.0
+  post_build:
+    commands:
+      - echo Building Docker image...
